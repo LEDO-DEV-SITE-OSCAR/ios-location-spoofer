@@ -24,7 +24,9 @@ for (const [label, content] of pages) {
   });
 
   test(`${label} loads favorite pin without auto-save`, () => {
-    assert.match(content, /function applyFavorite\(it\)\{[\s\S]*?saved\s*=\s*false;[\s\S]*?toast\("已加载收藏，确认后保存"\);\s*\}/);
+    assert.match(content, label === "source page"
+      ? /function applyFavorite\(it\)\{[\s\S]*?saved\s*=\s*false;[\s\S]*?toast\("Favorite loaded\. Review it, then save\."\);\s*\}/
+      : /function applyFavorite\(it\)\{[\s\S]*?saved\s*=\s*false;[\s\S]*?toast\("已加载收藏，确认后保存"\);\s*\}/);
     assert.doesNotMatch(content, /function applyFavorite\(it\)\{[\s\S]*?commit\(\);[\s\S]*?\}/);
   });
 }

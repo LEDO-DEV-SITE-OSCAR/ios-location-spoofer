@@ -9,5 +9,11 @@
       "binding": "LOC_KV",
       "id": "9b047f80dc864eea88fc5451c0fe6024"
     }
+  ],
+  "durable_objects": {
+    "bindings": [{ "name": "GEOCODER", "class_name": "GeocodeCoordinator" }]
+  },
+  "migrations": [
+    { "tag": "geocoder-v1", "new_sqlite_classes": ["GeocodeCoordinator"] }
   ]
 }
